@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Test - Africa Homeland Mobile Safaris</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .form-container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input, textarea, select {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        input:focus, textarea:focus, select:focus {
+            border-color: #4ab540;
+            outline: none;
+        }
+        button {
+            background: #4ab540;
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #34952b;
+        }
+        .status {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 5px;
+            display: none;
+        }
+        .success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        .error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h2>🧪 Formspree Test Form</h2>
+        <p>This is a simple test to verify if your Formspree form is working correctly.</p>
+        
+        <form action="https://formspree.io/f/xldbaard" method="POST" id="testForm">
+            <div class="form-group">
+                <label for="name">Your Name *</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="email">Your Email *</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="subject">Subject</label>
+                <input type="text" id="subject" name="subject" value="Test Form Submission">
+            </div>
+            
+            <div class="form-group">
+                <label for="message">Message *</label>
+                <textarea id="message" name="message" rows="4" required>This is a test message to verify that Formspree is working correctly.</textarea>
+            </div>
+            
+            <!-- Honeypot -->
+            <input type="text" name="_gotcha" style="display:none !important">
+            
+            <!-- Formspree config -->
+            <input type="hidden" name="_subject" value="Test Form Submission from Website">
+            
+            <button type="submit">Send Test Message</button>
+        </form>
+        
+        <div id="status" class="status">
+            <div id="success-message" class="success" style="display: none;">
+                ✅ Test successful! Your Formspree form is working correctly.
+            </div>
+            <div id="error-message" class="error" style="display: none;">
+                ❌ Test failed. There might be an issue with the form configuration.
+            </div>
+        </div>
+        
+        <div style="margin-top: 30px; padding: 20px; background: #e7f3ff; border-radius: 5px;">
+            <h3>📋 Troubleshooting Checklist:</h3>
+            <ul>
+                <li>✅ Form ID: <code>myzjnjdg</code></li>
+                <li>✅ Method: POST</li>
+                <li>✅ Required fields: name, email, message</li>
+                <li>✅ Honeypot field included</li>
+                <li>✅ Accept-Charset: UTF-8</li>
+            </ul>
+            
+            <p><strong>If this test works but your main form doesn't:</strong></p>
+            <ul>
+                <li>Check for JavaScript errors in browser console</li>
+                <li>Verify all form field names are correct</li>
+                <li>Make sure there are no conflicting scripts</li>
+                <li>Check Formspree dashboard for submissions</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('testForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const form = this;
+            const formData = new FormData(form);
+            const status = document.getElementById('status');
+            const success = document.getElementById('success-message');
+            const error = document.getElementById('error-message');
+            
+            // Hide previous messages
+            status.style.display = 'none';
+            success.style.display = 'none';
+            error.style.display = 'none';
+            
+            try {
+                console.log('Submitting test form...');
+                
+                const response = await fetch(form.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+                
+                console.log('Response:', response.status, response.ok);
+                
+                if (response.ok) {
+                    success.style.display = 'block';
+                    status.style.display = 'block';
+                    form.reset();
+                } else {
+                    const errorText = await response.text();
+                    console.error('Error response:', errorText);
+                    throw new Error(`HTTP ${response.status}: ${errorText}`);
+                }
+                
+            } catch (err) {
+                console.error('Form submission error:', err);
+                error.style.display = 'block';
+                status.style.display = 'block';
+                
+                // Fallback: try normal form submission
+                setTimeout(() => {
+                    if (confirm('AJAX submission failed. Try normal form submission?')) {
+                        form.submit();
+                    }
+                }, 2000);
+            }
+        });
+    </script>
+</body>
+</html>
