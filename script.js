@@ -3,7 +3,7 @@ class DeepAfricaSafaris {
         this.galleryData = [];
         this.currentFilter = "all";
         this.currentPage = 1;
-        this.itemsPerPage = 12;
+        this.itemsPerPage = 30;
         this.currentSearch = "";
         this.init();
     }
@@ -255,20 +255,32 @@ class DeepAfricaSafaris {
 
     loadMediaFromFolder() {
         const mediaFiles = [
-            "WhatsApp Image 2025-07-26 at 4.04.54 AM (1).jpeg",
-            "WhatsApp Image 2025-07-26 at 4.04.54 AM.jpeg",
-            "WhatsApp Image 2025-07-26 at 4.04.55 AM (1).jpeg",
-            "WhatsApp Image 2025-07-26 at 4.04.55 AM (2).jpeg",
-            "WhatsApp Image 2025-07-26 at 4.04.55 AM.jpeg",
-            "WhatsApp Image 2025-07-26 at 4.04.56 AM (1).jpeg",
-            "WhatsApp Image 2025-07-26 at 4.04.56 AM (2).jpeg",
-            "WhatsApp Image 2025-07-26 at 4.04.56 AM.jpeg",
-            "WhatsApp Image 2025-07-26 at 4.04.57 AM (1).jpeg",
-            "WhatsApp Image 2025-07-26 at 4.04.57 AM (2).jpeg",
-            "WhatsApp Image 2025-07-26 at 4.04.57 AM.jpeg",
-            "WhatsApp Image 2025-07-26 at 4.04.58 AM (1).jpeg",
-            "WhatsApp Image 2025-07-26 at 4.04.58 AM.jpeg",
-            "WhatsApp Image 2025-07-26 at 4.04.59 AM.jpeg",
+"WhatsApp Image 2026-01-08 at 10.37.11 AM (1).jpeg",
+"WhatsApp Image 2026-01-08 at 10.37.11 AM (2).jpeg",
+"WhatsApp Image 2026-01-08 at 10.37.11 AM.jpeg",
+"WhatsApp Image 2026-01-08 at 10.37.12 AM (1).jpeg",
+"WhatsApp Image 2026-01-08 at 10.37.12 AM (2).jpeg",
+"WhatsApp Image 2026-01-08 at 10.37.12 AM.jpeg",
+"WhatsApp Image 2026-01-08 at 10.37.13 AM (1).jpeg",
+"WhatsApp Image 2026-01-08 at 10.37.13 AM (2).jpeg",
+"WhatsApp Image 2026-01-08 at 10.37.13 AM.jpeg",
+"WhatsApp Image 2026-01-08 at 10.37.14 AM (1).jpeg",
+"WhatsApp Image 2026-01-08 at 10.37.14 AM (2).jpeg",
+"WhatsApp Image 2026-01-08 at 10.37.14 AM.jpeg",
+            // "WhatsApp Image 2025-07-26 at 4.04.54 AM (1).jpeg",
+            // "WhatsApp Image 2025-07-26 at 4.04.54 AM.jpeg",
+            // "WhatsApp Image 2025-07-26 at 4.04.55 AM (1).jpeg",
+            // "WhatsApp Image 2025-07-26 at 4.04.55 AM (2).jpeg",
+            // "WhatsApp Image 2025-07-26 at 4.04.55 AM.jpeg",
+            // "WhatsApp Image 2025-07-26 at 4.04.56 AM (1).jpeg",
+            // "WhatsApp Image 2025-07-26 at 4.04.56 AM (2).jpeg",
+            // "WhatsApp Image 2025-07-26 at 4.04.56 AM.jpeg",
+            // "WhatsApp Image 2025-07-26 at 4.04.57 AM (1).jpeg",
+            // "WhatsApp Image 2025-07-26 at 4.04.57 AM (2).jpeg",
+            // "WhatsApp Image 2025-07-26 at 4.04.57 AM.jpeg",
+            // "WhatsApp Image 2025-07-26 at 4.04.58 AM (1).jpeg",
+            // "WhatsApp Image 2025-07-26 at 4.04.58 AM.jpeg",
+            // "WhatsApp Image 2025-07-26 at 4.04.59 AM.jpeg",
         ];
 
         return mediaFiles.map((filename) => ({
